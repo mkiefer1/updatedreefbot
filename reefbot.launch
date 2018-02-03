@@ -1,0 +1,249 @@
+<launch>
+  <param name="image_dir" type="str" value="captured" />
+  <param name="html_dir" type="str" value="/home/reefbot/src/reefbot/webui" />
+  <param name="video_stream_topic" type="str" value="video_stream" />
+  <param name="still_image_topic" type="str" value="still_image" />
+  <param name="robot_status_topic" type="str" value="robot_status" />
+  <param name="robot_health_topic" type="str" value="robot_health" />
+  <param name="camera_ip" type="str" value="192.168.1.13" />
+  <param name="joystick_topic" type="str" value="universal_joy" />
+  <param name="camera_health_topic" type="str" value="camera_health" />
+  <param name="species_id_response_topic" type="str" value="species_id" />
+  <param name="mysql_host" type="str" value="localhost" />
+  <param name="mysql_ro_user" type="str" value="reefbot_readonly" />
+  <param name="mysql_pass" type="str" value="starfish" />
+  <param name="mysql_db" type="str" value="reefbot_console" />
+  <param name="video_url" type="str" value="rtsp://192.168.1.13:554/h264.sdp?res=full&amp;x0=0&amp;y0=0&amp;x1=1920&amp;y1=1088&amp;qp=20&amp;doublescan=0&amp;ssn=20" />
+  <param name="video_bcast_ip" type="str" value="239.255.15.42" />
+  <param name="video_bcast_port" type="str" value="5004" />
+
+  <node name="PS3_Joystick" pkg="joy" type="joy_node" respawn="true">
+    <param name="dev" type="string" value="/dev/input/ps3_joy"/>
+    <param name="deadzone" value="0.12"/>
+    <remap from="joy" to="universal_joy"/>
+  </node>
+
+  <node name="Arcade_Joystick" pkg="joy" type="joy_node" respawn="true">
+    <param name="dev" type="string" value="/dev/input/arcade_joy"/>
+    <param name="deadzone" value="0.12"/>
+    <remap from="joy" to="arcade_joy"/>
+  </node>
+
+  <node name="Arcade2Universal" pkg="joystick_remapper" type="joystick_remapper.py" respawn="true">
+    <remap from="joy_source" to="arcade_joy" />
+    <remap from="joy_dest" to="universal_joy" />
+    <param name="button_mapping" type="str" value="3 0 4 5 1 -1 2 -1 -1 -1 -1 -1" />
+    <param name="axis_mapping" type="str" value="0 1 -1 -1 -1 -1" />
+  </node>
+
+  <node name="Select_Joystick" pkg="joy" type="joy_node" respawn="true">
+    <param name="dev" type="string" value="/dev/input/select_joy"/>
+    <param name="deadzone" value="0.12"/>
+    <remap from="joy" to="select_joy"/>
+  </node>
+
+  <node name="Select2Universal" pkg="joystick_remapper" type="joystick_remapper.py" respawn="true">
+    <remap from="joy_source" to="select_joy" />
+    <remap from="joy_dest" to="universal_joy" />
+    <param name="button_mapping" type="str" value="0 -1 1 2 -1 -1 -1 -1 -1 -1 -1 -1" />
+    <param name="axis_mapping" type="str" value="0 1 -1 -1 -1 -1" />
+  </node>
+
+  <node name="UIHandler" pkg="reefbot" type="UIHandler.py" respawn="true" >
+
+    <!-- SpeciesSelectionModule -->
+    <param name="min_species_score" type="double" value="-1" />
+    <param name="confident_score" type="double" value="1" />
+    <param name="change_selection_axis" type="int" value="5" />
+    <param name="select_decrement_button" type="int" value="0" />
+    <param name="select_increment_button" type="int" value="3" />
+    <param name="select_species_button" type="int" value="2" />
+    
+  </node>
+
+  <node name="RobotController" pkg="reefbot-controller"
+  type="ReefbotControl.py" respawn="true">
+    <param name="serial_host" type="str" value="192.168.1.2" />
+    <param name="serial_port" type="int" value="100" />
+    <param name="timeout" type="double" value="1.0" />
+    <param name="thruster_limit" type="double" value="1.0"/>
+
+    <!-- thruster_limit is the portion of full speed.  Set to half." -->
+    <param name="flip_thrusters" type="bool" value="False" />
+    <param name="max_forward_thrust" type="double" value="0.4"/>
+    <param name="max_rotation_thrust" type="double" value="0.9"/>
+
+    <!-- parameters for depth keeping, should be in metres. -->
+    <param name="min_depth" type="double" value="1.1"/>
+    <param name="max_depth" type="double" value="7.2"/>
+    <param name="spin_limit" type="double" value="960"/>
+    <param name="max_spin_time" type="double" value="45.0" />
+
+    <!-- parameters for the buttons. For each axis, either an axis or
+    two buttons must be specified. If they are not used, set the value
+    to -1 -->
+    <param name="dive_axis" type="int" value="-1"/>
+    <param name="dive_down_button" type="int" value="6"/>
+    <param name="dive_up_button" type="int" value="4"/>
+    <param name="turn_axis" type="int" value="0"/>
+    <param name="left_turn_button" type="int" value="-1"/>
+    <param name="right_turn_button" type="int" value="-1"/>
+    <param name="fwd_back_axis" type="int" value="1"/>
+    <param name="fwd_button" type="int" value="-1"/>
+    <param name="back_button" type="int" value="-1"/>
+  </node>
+
+  <node name="CameraCaptureManager" pkg="reefbot"
+    type="CameraCaptureManager.py" respawn="true">
+    <param name="button_id" type="int" value="1" />
+    <param name="res" type="str" value="full" />
+    <param name="x0" type="int" value="640" />
+    <param name="x1" type="int" value="1280" />
+    <param name="y0" type="int" value="352" />
+    <param name="y1" type="int" value="768" />
+    <param name="quality" type="int" value="18" />
+  </node>
+  
+  
+  <node name="CameraWatchdog" pkg="reefbot" type="CameraWatchdog.py"
+    respawn="true">
+    <param name="ping_rate" type="double" value="1.0" />
+    <param name="ping_timeout" type="double" value="2.0" />
+    <param name="camera_off_wait" type="double" value="1.0" />
+    <param name="camera_on_wait" type="double" value="45.0" />
+    <param name="ping_retries" type="int" value="2" />
+  </node>
+
+  <!-- Experimental nodes for adding multiple species detectors -->
+  <node name="FrontalFaceDetector" pkg="reefbot"
+     type="reefbot_cascade_detector">
+    
+    <param name="detector_filename" type="str"
+     value="/opt/ros/cturtle/stacks/vision_opencv/opencv2/opencv/share/opencv/haarcascades/haarcascade_upperbody.xml" />
+    <param name="object_name" type="str" value="face" />
+    <param name="species_id" type="int" value="47" />
+    <param name="scale_factor" type="double" value="1.2" />
+    <param name="min_neighbors" type="int" value="3" />
+    <param name="flags" type="int" value="5" />
+    <param name="min_size" type="int" value="10" />
+
+    <param name="timeout" type="int" value="500" />
+    <param name="service_name" type="str" value="detect_faces" />
+
+  </node>
+
+  <node name="SpeciesFinderManager" pkg="reefbot"
+    type="SpeciesFinderManager.py">
+
+    <param name="still_image_topic" type="str" value="still_image" />
+    <param name="species_id_response_topic" type="str"
+      value="species_id" />
+    <param name="timeout" type="int" value="5" />
+    <param name="plugin_list" type="str"
+      value="Service,FrontalFaceDetector;PubSub,random" />
+
+    <param name="FrontalFaceDetector/internal_service" type="str"
+      value="detect_faces" />
+    <param name="random/request_topic" type="str"
+      value="random/image" />
+    <param name="random/response_topic" type="str"
+      value="random/response" />
+
+  </node>
+  
+  
+  <node name="NOPFishFinder" pkg="reefbot" type="NOPFishFinder.py"
+    respawn="true">
+
+    <param name="species_id_request_topic" type="str"
+     value="random/request" />
+  
+    <param name="still_image_topic" type="str" value="random/image" />
+  </node>
+  
+  
+  <node name="RandomSpeciesId" pkg="reefbot" type="RandomSpeciesId.py"
+    respawn="true">
+    <param name="n_species" type="int" value="39" />
+    <param name="species_id_request_topic" type="str"
+      value="random/request" />
+    <param name="species_id_response_topic" type="str"
+      value="random/response" />
+  </node>
+  
+  <!--
+  <node name="SpeciesIDNode" pkg="species_id" type="SpeciesIDRosNode">
+    <param name="index_file" type="str"
+      value="/home/reefbot/data/species_id/train_sMrBpUqQcx.index" />
+
+    <param name="color_dict_filename" type="str"
+      value="/home/reefbot/data/species_id/hsv.dict" />
+    <param name="color_converter" type="str"
+      value="CV_BGR2HSV" />
+    <param name="color_frac" type="double" value="0.1" />
+    <param name="shape_dict_filename" type="str"
+      value="/home/reefbot/data/species_id/osurf.dict" />
+    <param name="surf_detector" type="bool" value="True" />
+    <param name="surf_hessian_threshold" type="double" value="400" />
+    <param name="surf_octaves" type="double" value="3" />
+    <param name="surf_octave_layers" type="double" value="4" />
+    <param name="surf_extended" type="bool" value="False" />
+    <param name="surf_descriptor" type="bool" value="False" />
+    <param name="sift_descriptor" type="bool" value="False" />
+    <param name="shape_weight" type="double" value="1.0" />
+    <param name="min_shape_val" type="double" value="0.01" />
+    <param name="min_color_val" type="double" value="0.01" />
+    <param name="min_score" type="double" value="0.01" />
+    <param name="opponent_color_surf" type="bool" value="True" />
+    <param name="cinvariant_color_surf" type="bool" value="False" />
+  </node>
+  -->
+
+  <node name="HudController" pkg="reefbot_hudui" type="HudController.py" 
+    respawn="true">
+    <param name="max_video_errors" type="int" value="20" />
+    <param name="x_display" type="str" value=":0.0" />
+  </node>
+  <param name="HudUI/x_display" type="str" value=":0.0" />
+  <param name="HudUI/min_depth" type="double" value="0.0" />
+  <param name="HudUI/max_depth" type="double" value="9.0" />
+  
+  <node name="SpeciesInfoUI" pkg="reefbot" type="FirefoxRunner.py">
+    <param name="x" type="int" value="0" />
+    <param name="y" type="int" value="0" />
+    <param name="width" type="int" value="1920" />
+    <param name="height" type="int" value="1080" />
+    <param name="url" type="str" value="file:///home/reefbot/src/reefbot/webui/species_info.html" />
+    <param name="title" type="str" value="Species Info" />
+    <param name="delay" type="double" value="4.0" />
+    <param name="xscreen" type="str" value="0.1" />
+    <param name="profile" type="str" value="screen1" />
+  </node>
+
+  
+  <!-- Dont' forget to replace the double dashes for x11-dispay & rtp-caching
+  <node name="VideoScreen" pkg="reefbot" type="vlc" respawn="true" 
+    args="-f -x11-display=:0.2 rtp://239.255.15.42:5004 -rtp-caching=800" />
+  -->
+  
+
+  <!-- Commenting out for now because of disk space issues -->
+  <node name="VideoLogger" pkg="reefbot" type="VideoLogger.py">
+    <param name="dest_dir" type="str" value="/export/reefbot/video/" />
+    <param name="max_duration" type="double" value="600" />
+  </node>
+  
+
+  <node name="ros_logger" pkg="rosbag" type="rosbag" respawn="true"
+    args="record -o /export/reefbot/bags/message_log --split=128 -a -j" />
+
+  <!--
+  <node name="frame_grabber" pkg="frame_grabber" type="frame_grabber">
+    <param name="snapshot_dir"
+      value="/home/reefbot/data/frame_grabber/snapshots/" />
+    <param name="media_path"
+      value="rtp://239.255.15.42:5004" />
+  </node>
+  -->
+  
+</launch>
