@@ -1,0 +1,75 @@
+<launch>
+  <param name="image_dir" type="str" value="captured" />
+  <param name="html_dir" type="str" value="/home/reefbot/src/reefbot/webui" />
+  <param name="video_stream_topic" type="str" value="video_stream" />
+  <param name="still_image_topic" type="str" value="still_image" />
+  <param name="robot_status_topic" type="str" value="robot_status" />
+  <param name="camera_ip" type="str" value="192.168.1.13" />
+  <param name="joystick_topic" type="str" value="universal_joy" />
+  <param name="camera_health_topic" type="str" value="camera_health" />
+  <param name="species_id_response_topic" type="str" value="species_id" />
+  <param name="species_id_request_topic" type="str" value="request_species_id" />
+  <param name="mysql_host" type="str" value="localhost" />
+  <param name="mysql_ro_user" type="str" value="reefbot_readonly" />
+  <param name="mysql_pass" type="str" value="starfish" />
+  <param name="mysql_db" type="str" value="reefbot_console" />
+  <param name="video_url" type="str" value="rtsp://192.168.1.14:554/h264.sdp?res=half&amp;x0=0&amp;y0=0&amp;x1=1920&amp;y1=1088&amp;qp=20&amp;doublescan=0&amp;ssn=20" />
+  <param name="video_log_url" type="str" value="rtsp://192.168.1.13:554/h264.sdp?res=half&amp;x0=0&amp;y0=0&amp;x1=3648&amp;y1=2752&amp;qp=12&amp;bitrate=20000&amp;doublescan=0&amp;ssn=22"/>
+  <param name="video_bcast_ip" type="str" value="239.255.15.42" />
+  <param name="video_bcast_port" type="str" value="5004" />
+
+  <node name="HudUI" pkg="reefbot_hudui" type="hudui.py">
+    <param name="min_depth" type="double" value="0.0" />
+    <param name="max_depth" type="double" value="6.0" />
+  </node>
+
+  
+
+  <node name="UIHandler" pkg="reefbot" type="UIHandler.py" respawn="true" >
+
+    <!-- SpeciesSelectionModule -->
+    <param name="min_species_score" type="double" value="-1" />
+    <param name="confident_score" type="double" value="1" />
+    <param name="change_selection_axis" type="int" value="5" />
+    <param name="select_decrement_value" type="double" value="-1.0" />
+    <param name="select_increment_value" type="double" value="1.0" />
+    <param name="select_species_button" type="int" value="2" />
+    
+  </node>
+
+  <!--
+  <node name="CameraCaptureManager" pkg="reefbot"
+    type="CameraCaptureManager.py" respawn="true">
+    <param name="button_id" type="int" value="1" />
+    <param name="res" type="str" value="full" />
+    <param name="x0" type="int" value="640" />
+    <param name="x1" type="int" value="1280" />
+    <param name="y0" type="int" value="352" />
+    <param name="y1" type="int" value="768" />
+    <param name="quality" type="int" value="18" />
+  </node>
+  
+
+  <node name="CameraWatchdog" pkg="reefbot" type="CameraWatchdog.py"
+    respawn="true">
+    <param name="ping_rate" type="double" value="1.0" />
+    <param name="ping_timeout" type="double" value="1.0" />
+    <param name="camera_off_wait" type="double" value="1.0" />
+    <param name="camera_on_wait" type="double" value="23.0" />
+  </node>
+  -->
+
+
+  
+
+  <!--
+  <node name="VideoLogger" pkg="reefbot" type="VideoLogger.py">
+    <param name="dest_dir" type="str" value="/export/reefbot/video/" />
+    <param name="max_duration" type="double" value="600" />
+  </node>-->
+
+  <!--
+  <node name="ros_logger" pkg="rosbag" type="rosbag" respawn="true"
+    args="record -o /export/reefbot/bags/message_log -split=128 -a" />
+  -->
+</launch>
