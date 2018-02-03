@@ -1,0 +1,15 @@
+<library path="lib/libVisualUtilityFilterNodelet">
+  <class name="visual_utility/VisualUtilityFilterNodelet" type="visual_utility::VisualUtilityFilterNodelet" base_class_type="nodelet::Nodelet">
+  <description>
+  A nodelet to do visual utility filtering
+  </description>
+  </class>
+</library>
+
+<library path="lib/libVisualUtilityEstimatorNodelet">
+  <class name="visual_utility/VisualUtilityEstimatorNodelet" type="visual_utility::VisualUtilityEstimatorNodelet" base_class_type="nodelet::Nodelet">
+  <description>
+  A nodelet to calculate a visual utility estimate.
+  </description>
+  </class>
+</library>

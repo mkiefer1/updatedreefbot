@@ -1,0 +1,30 @@
+<package>
+  <description brief="visual_utility">
+
+     Visual utility based tools
+
+  </description>
+  <author>Mark Desnoyer (mdesnoyer@gmail.com)</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/visual_utility</url>
+  <depend package="sensor_msgs"/>
+  <depend package="roscpp"/>
+  <depend package="std_msgs"/>
+  <depend package="nodelet"/>
+  <depend package="cv_bridge" />
+  <depend package="cv_blobs" />
+  <depend package="objdetect_msgs" />
+  <depend package="cv_utils" />
+  <depend package="objectness" />
+  <depend package="hog_detector" />
+  <depend package="cascade_detector" />
+  <export>
+    <cpp cflags="-I${prefix}/include" lflags="-L${prefix}/lib -Wl,-rpath,${prefix}/lib"/>
+
+    <nodelet plugin="${prefix}/nodelet_plugins.xml" />
+  </export>
+
+</package>
+
+
