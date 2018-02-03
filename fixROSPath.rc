@@ -1,0 +1,22 @@
+#!/bin/sh
+#
+# Sets the ROS package path to include this directory and
+# to remove any other directory that is not in a boxturtle path. This
+# allows us to use multiple sandboxes.
+#
+# To use this, run:
+# source fixROSPath.rc
+#
+# Author: Mark Desnoyer
+# Date: June 2010
+
+NEW_PATH=`pwd`
+
+for dir in `echo ${ROS_PACKAGE_PATH} | sed 's/:/ /g'` ; do
+    if ( echo ${dir} | grep -Eq '.*/ros/boxturtle/.*' ) ; then
+        NEW_PATH=${NEW_PATH}:${dir}
+    fi
+done
+
+export ROS_PACKAGE_PATH=${NEW_PATH}
+        
