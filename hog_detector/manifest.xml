@@ -1,0 +1,27 @@
+<package>
+  <description brief="hog_detector">
+
+     A HOG based object detector.
+
+     Input: objdetect_msgs/DetectObject.msg
+     Output: objdetect_msgs/DetectionArray.msg
+
+  </description>
+  <author>Mark Desnoyer</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/hog_detector</url>
+  <depend package="roscpp"/>
+  <depend package="sensor_msgs"/>
+  <depend package="objdetect_msgs"/>
+  <depend package="cv_bridge"/>
+  <depend package="nodelet"/>
+  <depend package="cv_utils"/>
+  <export>
+    <nodelet plugin="${prefix}/nodelet_plugins.xml" />
+    <cpp cflags="-I${prefix}/include" lflags="-L${prefix}/lib -Wl,-rpath,${prefix}/lib"/>
+  </export>
+
+</package>
+
+
