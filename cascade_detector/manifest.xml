@@ -1,0 +1,26 @@
+<package>
+  <description brief="OpenCV Haar Cascade Detector">
+
+     A wrapper around the OpenCV Haar Cascade detector
+
+  </description>
+  <author>Mark Desnoyer(markd@cmu.edu)</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/cascade_detector</url>
+
+  <export>
+    <cpp cflags="-I${prefix}/include"
+        lflags="-L${prefix}/lib -Wl,-rpath,-L${prefix}/lib -lcascade_detector_lib" />
+  </export>
+
+  <depend package="roslib"/>
+  <depend package="roscpp"/>
+  <depend package="std_msgs"/>
+  <depend package="sensor_msgs"/>
+  <depend package="cv_bridge"/>
+
+
+</package>
+
+

@@ -1,0 +1,36 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+\b cascade_detector is ... 
+
+<!-- 
+Provide an overview of your package.
+-->
+
+@param filename Filename of the detector model to use. Look in stacks/vision_opencv/opencv2/opencv/share/opencv/haarcascades/ for some defaults
+@param object_name Name of the type of object being detected
+@param image_topic Topic to listen for images on
+@param response_topic Topic to publish responses on
+@param service_name Name of the service that will detect objects for you
+@param scale_factor Double Specifies how much the image size is reduced at each image scale.
+@param min_neighbors Int Specifies how many neighbors should each candidate rectangle have to retain it
+@param flags Int This parameter is not used for new cascades and have the same meaning for old cascades as in function cvHaarDetectObjects
+@param min_size Int The minimum possible object size in pixels. Objects smaller than that are ignored.
+
+
+\section codeapi Code API
+
+<!--
+Provide links to specific auto-generated API documentation within your
+package that is of particular interest to a reader. Doxygen will
+document pretty much every part of your code, so do your best here to
+point the reader to the actual API.
+
+If your codebase is fairly large or has different sets of APIs, you
+should use the doxygen 'group' tag to keep these APIs together. For
+example, the roscpp documentation has 'libros' group.
+-->
+
+
+*/
