@@ -1,0 +1,10 @@
+sensor_msgs/Image image
+---
+sensor_msgs/Image image
+sensor_msgs/RegionOfInterest[] regions
+float32[] scores
+
+# These are for debugging and will only be populated if ~/visual_debugging parameter is set to true
+sensor_msgs/Image debug_vu_estimate
+sensor_msgs/Image debug_mosaic
+sensor_msgs/Image debug_framing
