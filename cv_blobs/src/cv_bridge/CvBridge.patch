@@ -1,0 +1,16 @@
+--- /opt/ros/boxturtle/stacks/vision_opencv/cv_bridge/include/cv_bridge/CvBridge.h	2010-07-31 23:56:01.000000000 -0400
++++ CvBridge.h	2010-11-29 17:48:31.000000000 -0500
+@@ -423,7 +423,12 @@
+      */
+     IplImage* imgMsgToCv(sensor_msgs::Image::ConstPtr rosimg, std::string desired_encoding = "passthrough")
+     {
+-      if (!fromImage(*rosimg, desired_encoding))
++      return imgMsgToCv(*rosimg, desired_encoding);
++    }
++
++    IplImage* imgMsgToCv(const Image& rosimg, std::string desired_encoding = "passthrough")
++    {
++      if (!fromImage(rosimg, desired_encoding))
+         throw CvBridgeException("Conversion to OpenCV image failed");
+       return toIpl();
+     }

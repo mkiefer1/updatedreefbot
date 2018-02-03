@@ -1,0 +1,21 @@
+<package>
+  <description brief="cv_blobs">
+
+     cv_blobs
+
+  </description>
+  <author>Mark Desnoyer</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/cv_blobs</url>
+  <depend package="roscpp"/>
+  <depend package="reefbot_msgs"/>
+  <depend package="cv_bridge"/>
+
+  <export>
+    <cpp cflags="-I${prefix}/include" lflags="-L${prefix}/lib -Wl,-rpath,${prefix}/lib"/>
+  </export>
+
+</package>
+
+
