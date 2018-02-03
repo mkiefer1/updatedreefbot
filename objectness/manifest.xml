@@ -1,0 +1,19 @@
+<package>
+  <description brief="objectness">
+
+     objectness
+
+  </description>
+  <author>Mark Desnoyer</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/objectness</url>
+  <depend package="roscpp"/>
+  <depend package="cv_utils"/>
+  <export>
+    <cpp cflags="-I${prefix}/include" lflags="-L${prefix}/lib -Wl,-rpath,${prefix}/lib"/>
+  </export>
+
+</package>
+
+
