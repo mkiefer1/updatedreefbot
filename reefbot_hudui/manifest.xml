@@ -1,0 +1,21 @@
+<package>
+  <description brief="reefbot_hudui">
+
+     reefbot_hudui
+
+  </description>
+  <author>Mark Desnoyer</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/reefbot_hudui</url>
+  <depend package="rospy"/>
+  <depend package="reefbot_msgs"/>
+  <depend package="sensor_msgs"/>
+  <depend package="std_msgs"/>
+  <depend package="opencv2"/>
+  <depend package="cv_bridge"/>
+  <depend package="joy"/>
+
+</package>
+
+

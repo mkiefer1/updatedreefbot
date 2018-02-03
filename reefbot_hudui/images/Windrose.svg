@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 13.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 14948)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="800px" height="800px" viewBox="0 0 800 800" enable-background="new 0 0 800 800" xml:space="preserve">
+<g id="compass">
+	<g id="g2294">
+		<path id="pfeil-rechtsoben-oben" fill="#0C7F00" stroke="#000000" d="M392.357,396.375V330.04l157.981-91.849L392.357,396.375z"/>
+		<path id="pfeil-rechtsoben-rechts" fill="#FFFFFF" stroke="#000000" d="M392.357,396.375h66.25l91.731-158.184L392.357,396.375z"
+			/>
+		<path id="pfeil-rechtsunten-rechts" fill="#0C7F00" stroke="#000000" d="M392.357,396.375h66.25l91.731,158.184L392.357,396.375z"
+			/>
+		<path id="pfeil-rechtsunten-unten" fill="#FFFFFF" stroke="#000000" d="M392.357,396.375v66.336l157.981,91.848L392.357,396.375z"
+			/>
+		<path id="pfeil-linksunten-unten" fill="#0C7F00" stroke="#000000" d="M392.357,396.375v66.336l-157.984,91.848L392.357,396.375z"
+			/>
+		<path id="pfeil-linksunten-links" fill="#FFFFFF" stroke="#000000" d="M392.357,396.375h-66.252l-91.732,158.184L392.357,396.375z
+			"/>
+		<path id="pfeil-linksoben-links" fill="#0C7F00" stroke="#000000" d="M392.357,396.375h-66.252l-91.732-158.184L392.357,396.375z"
+			/>
+		<path id="pfeil-linksoben-oben" fill="#FFFFFF" stroke="#000000" d="M392.357,396.375V330.04l-157.984-91.849L392.357,396.375z"/>
+		<path id="pfeil-oben-links" fill="#0C7F00" stroke="#000000" d="M392.357,90.211l-45.867,260.24l45.867,45.924V90.211z"/>
+		<path id="pfeil-oben-rechts" fill="#FFFFFF" stroke="#000000" d="M392.357,90.211l45.864,260.239l-45.864,45.924V90.211z"/>
+		<path id="pfeil-rechts-oben" fill="#0C7F00" stroke="#000000" d="M698.131,396.375l-259.908-45.924l-45.864,45.924H698.131z"/>
+		<path id="pfeil-rechts-unten" fill="#FFFFFF" stroke="#000000" d="M698.131,396.375l-259.908,45.924l-45.864-45.924H698.131z"/>
+		<path id="pfeil-unten-rechts" fill="#0C7F00" stroke="#000000" d="M392.357,702.539l45.864-260.24l-45.864-45.924V702.539z"/>
+		<path id="pfeil-unten-links" fill="#FFFFFF" stroke="#000000" d="M392.357,702.539l-45.867-260.24l45.867-45.924V702.539z"/>
+		<path id="pfeil-links-unten" fill="#0C7F00" stroke="#000000" d="M86.583,396.375l259.908,45.924l45.867-45.924H86.583z"/>
+		<path id="pfeil-links-oben" fill="#FFFFFF" stroke="#000000" d="M86.583,396.375l259.908-45.924l45.867,45.924H86.583z"/>
+	</g>
+	<g id="rotekreisebene">
+		<path id="kreisinnen" fill="#B00000" d="M417.615,157.886l5.223,31.51c33.891,4.967,65.131,18.094,91.701,37.314l25.705-18.944
+			C505.738,180.599,463.611,162.718,417.615,157.886z M363.723,158.269c-45.85,5.479-87.75,23.935-121.896,51.602l25.959,18.594
+			c26.311-19.607,57.356-33.176,91.127-38.621L363.723,158.269z M578.625,245.654l-18.57,25.992
+			c19.582,26.345,33.133,57.43,38.572,91.242l31.533,4.816C624.688,321.796,606.256,279.841,578.625,245.654z M203.988,248.3
+			c-27.133,34.549-44.99,76.729-49.816,122.784l31.468-5.23c4.961-33.933,18.07-65.214,37.268-91.817L203.988,248.3z
+			 M630.543,421.666l-31.471,5.23c-4.957,33.932-18.068,65.213-37.267,91.815l18.92,25.736
+			C607.857,509.9,625.717,467.721,630.543,421.666z M154.554,425.045c5.472,45.908,23.903,87.863,51.536,122.051l18.57-25.989
+			c-19.582-26.345-33.133-57.431-38.572-91.244L154.554,425.045z M516.928,564.287c-26.311,19.606-57.356,33.176-91.127,38.621
+			l-4.811,31.572c45.85-5.478,87.752-23.935,121.896-51.603L516.928,564.287z M270.174,566.041l-25.703,18.943
+			c34.504,27.166,76.632,45.049,122.626,49.879l-5.223-31.51C327.984,598.389,296.742,585.262,270.174,566.041z"/>
+	</g>
+	<g id="beschriftungsebene">
+		<text transform="matrix(0.9987 0 0 1 371.7754 41.7988)" fill="#B00000" font-family="'Verdana'" font-size="48.9861">N</text>
+		
+			<text transform="matrix(0.7067 0.7076 -0.7067 0.7076 630.6846 122.2358)" fill="#B00000" font-family="'Verdana'" font-size="48.9575">NE</text>
+		<text transform="matrix(0 1.0013 -1 0 757.2559 379.395)" fill="#B00000" font-family="'Verdana'" font-size="48.9238">E</text>
+		
+			<text transform="matrix(-0.7067 0.7076 -0.7067 -0.7076 683.4043 624.9951)" fill="#B00000" font-family="'Verdana'" font-size="48.9575">SE</text>
+		<text transform="matrix(-0.9987 0 0 -1 407.959 757.2012)" fill="#B00000" font-family="'Verdana'" font-size="48.9861">S</text>
+		
+			<text transform="matrix(-0.7067 -0.7076 0.7067 -0.7076 176.749 667.8594)" fill="#B00000" font-family="'Verdana'" font-size="48.9575">SW</text>
+		<text transform="matrix(0 -1.0013 1 0 41.7441 417.2578)" fill="#B00000" font-family="'Verdana'" font-size="48.9238">W</text>
+		
+			<text transform="matrix(0.7067 -0.7076 0.7067 0.7076 119.9604 166.2124)" fill="#B00000" font-family="'Verdana'" font-size="48.9575">NW</text>
+	</g>
+</g>
+</svg>
