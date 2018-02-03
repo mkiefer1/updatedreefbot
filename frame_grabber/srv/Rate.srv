@@ -1,0 +1,3 @@
+float32 rate #Set the rate in Hz for the frame transition loop
+---
+string status #Success/Failure return message

@@ -1,0 +1,16 @@
+<package>
+  <description brief="frame_grabber">
+
+     frame_grabber
+
+  </description>
+  <author>Srinivasan</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/frame_grabber</url>
+  <depend package="std_msgs"/>
+  <depend package="roscpp"/>
+
+</package>
+
+

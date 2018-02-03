@@ -1,0 +1,3 @@
+int64 snapshot # >=1 enables snapshot, else disables snapshot
+---
+string status #Sucess/Failure return message

@@ -1,0 +1,12 @@
+
+<!-- When this node is launched, it opens up a window displaying the video stream and messages on the window stating which snapshot file is being written. Just check the directory specified in the snapshot_dir parameter and files should be written to it successively. At the maximum, 10 files are written to this directory, overwriting in a circular fashion. This number can be altered using the frame_grabber/num_snapshot service. -->
+<!-- To stop the node, call the frame_grabber/exit service with no arguments -->
+<launch>
+	<!-- Set the value to media_path paramter to the stream address or the absolute path to a file to test its operation.  -->
+	<param name="frame_grabber/media_path" value="/home/srinivasan/Downloads/Reefbot video.mp4"/>
+	
+	<!-- Set the snapshot_dir parameter to the absolute path of where the snapshot files need to be stored temporarily before being transported to the remote machine.  -->
+	<param name="frame_grabber/snapshot_dir" value="/home/srinivasan/workspace/ros_tutorials/frame_grabber/snapshots/" />
+
+       <node name="frame_grabber" pkg="frame_grabber" type="frame_grabber"/>
+</launch>
