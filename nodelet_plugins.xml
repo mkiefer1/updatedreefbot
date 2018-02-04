@@ -1,0 +1,7 @@
+<library path="lib/libCascadePartsDetectorNodelet">
+  <class name="cascade_parts_detector/CascadePartsDetectorNodelet" type="cascade_parts_detector::CascadePartsDetectorNodelet" base_class_type="nodelet::Nodelet">
+  <description>
+  Nodelet for a cascade based object detector by parts.
+  </description>
+  </class>
+</library>

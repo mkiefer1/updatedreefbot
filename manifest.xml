@@ -1,0 +1,41 @@
+<package>
+  <description brief="cascade_parts_detector">
+
+     This is a ROS wrapper around the Discriminatively Trained
+     Deformable Part Model object detector for Felzenszwalb et
+     al. This is not a port to C++ or ROS. It wraps the MATLAB code
+     provided by the authors and makes it accessible to
+     ROS. Therefore, to run this code, you need MATLAB installed on
+     the machine with the correct compiler.
+
+  For more details about the algorithm see:
+
+  http://people.cs.uchicago.edu/~pff/latent-release4
+
+  The ROS node subscribes to:
+  sensor_msgs::Image
+
+  And outputs a:
+  cascade_parts_detector::ROIArray
+
+
+  </description>
+  <author>Mark Desnoyer</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/cascade_parts_detector</url>
+  <depend package="roscpp"/>
+  <depend package="roslib"/>
+  <depend package="sensor_msgs"/>
+  <depend package="std_msgs"/>
+  <depend package="nodelet"/>
+  <depend package="cv_bridge"/>
+  <export>
+    <cpp cflags="-I${prefix}/include" lflags="-L${prefix}/lib -Wl,-rpath,-L${prefix}/lib -lros"/>
+
+    <nodelet plugin="${prefix}/nodelet_plugins.xml" />
+  </export>
+
+</package>
+
+
